@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class multiply {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of rows for the first matrix: ");
+        int rows1 = scanner.nextInt();
+        System.out.print("Enter the number of columns for the first matrix: ");
+        int columns1 = scanner.nextInt();
+        System.out.print("Enter the number of rows for the second matrix: ");
+        int rows2 = scanner.nextInt();
+        System.out.print("Enter the number of columns for the second matrix: ");
+        int columns2 = scanner.nextInt();
+        if (columns1 != rows2) {
+            System.out.println("Matrix multiplication is not possible. Columns of the first matrix must be equal to rows of the second matrix.");
+        } else {
+            int[][] matrix1 = new int[rows1][columns1];
+            System.out.println("Enter elements for the first matrix:");
+            inputMatrixElements(matrix1, scanner);
+            int[][] matrix2 = new int[rows2][columns2];
+            System.out.println("Enter elements for the second matrix:");
+            inputMatrixElements(matrix2, scanner);
+            int[][] resultMatrix = new int[rows1][columns2];
+            for (int i = 0; i < rows1; i++) {
+                for (int j = 0; j < columns2; j++) {
+                    for (int k = 0; k < columns1; k++) {
+                        resultMatrix[i][j] += matrix1[i][k] * matrix2[k][j];
+                    }
+                }
+            }
+            System.out.println("Result of matrix multiplication:");
+            displayMatrix(resultMatrix);
+        }
+
+        scanner.close();
+    }
+    public static void inputMatrixElements(int[][] matrix, Scanner scanner) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                matrix[i][j] = scanner.nextInt();
+            }
+        }
+    }
+    public static void displayMatrix(int[][] matrix) {
+        for (int[] row : matrix) {
+            for (int element : row) {
+                System.out.print(element + " ");
+            }
+            System.out.println();
+        }
+    }
+}
