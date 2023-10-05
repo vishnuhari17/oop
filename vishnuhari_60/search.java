@@ -1,34 +1,30 @@
-import java.util.Scanner;
-public class search {
-    public static void main(String[] args) {
-        int a[] = new int[10];
-        int elem,flag=0,i,n;
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the no of elements in the array: ");
-        n = scanner.nextInt();
-        System.out.println("Enter the elements : \n");
-        for(i=0;i<n;i++)
-        {
-            a[i] = scanner.nextInt();
-        }
-        System.out.println("Enter the elements to be searched : ");
-        elem = scanner.nextInt();
-        for(i=0;i<n;i++)
-        {
-            if(a[i]==elem)
-            {
-                flag=1;
-                break;
-            }
-        }
-        if(flag==0)
-        {
-            System.out.println("Element not found in the array\n");
-        }
-        else
-        {
-            System.out.println("Element found in the array\n");
-        }
-
-    }
+import java.util.*;
+public class search{
+	public static void main(String args[]){
+		int a[] = new int[20];
+		int n,ele,i,flag=0,index=0;
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter the no of terms : ");
+		n = sc.nextInt();
+		System.out.println("Enter the elements");
+		for(i=0;i<n;i++){
+			a[i]=sc.nextInt();
+		}
+		System.out.print("Enter the element to be searched : ");
+		ele = sc.nextInt();
+		for(i=0;i<n;i++){
+			if(ele==a[i]){
+				index=i;
+				flag=1;
+				break;
+			}
+		}
+		if(flag==1){
+			System.out.println("Element found at index "+index);
+		}
+		else
+		{
+			System.out.println("Element not found");
+		}
+	}
 }
