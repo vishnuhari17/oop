@@ -1,49 +1,42 @@
 import java.util.*;
-public class add{
-	public static void main(String args[]){
-		int a[][] = new int[20][20];
-		int b[][] = new int[20][20];
-		int res[][] = new int[20][20];
-		int r1,c1,r2,c2,i,j;
+class complex
+{
+	int real;
+	int imaginary;
+	void read(int a, int b)
+	{
+		real = a;
+		imaginary = b;
+	}
+	complex add(complex z)
+	{
+		complex c3 = new complex();
+		c3.real = real + z.real;
+		c3.imaginary = imaginary + z.imaginary;
+		return c3;
+	}
+}
+
+class add
+{
+	public static void main(String Args[])
+	{
+		int a,b;
 		Scanner sc = new Scanner(System.in);
-		System.out.print("Enter the no of rows of 1st matrix: ");
-		r1 = sc.nextInt();
-		System.out.print("Enter the no of cols of 1st matrix: ");
-		c1 = sc.nextInt();
-		System.out.print("Enter the no of rows of 2nd matrix: ");
-		r2 = sc.nextInt();
-		System.out.print("Enter the no of cols of 2nd matrix: ");
-		c2 = sc.nextInt();
-		if(r1==r2&&c1==c2){
-			System.out.println("Enter the elements of 1st matrix: ");
-			for(i=0;i<r1;i++){
-				for(j=0;j<c1;j++){
-					a[i][j] = sc.nextInt();
-				}
-			}
-			System.out.println("Enter the elements of 2nd matrix: ");
-			for(i=0;i<r2;i++){
-				for(j=0;j<c2;j++){
-					b[i][j] = sc.nextInt();
-				}
-			}
-			for(i=0;i<r1;i++){
-				for(j=0;j<c1;j++){
-					res[i][j] = a[i][j]+b[i][j];
-				}
-			}
-			System.out.println("The Sum of the two matrix's is : ");
-			for(i=0;i<r1;i++){
-				for(j=0;j<c1;j++){
-					System.out.print(res[i][j]+"\t");
-				}
-				System.out.println();
-			}
-		}
-		else{
-			System.out.println("These two matrixes cannot be added!");
-		}
-		
-		
+		complex c1 = new complex();
+		complex c2 = new complex();
+		complex c3 = new complex();
+		System.out.print("Enter the real part of the first no : ");
+		a=sc.nextInt();
+		System.out.print("Enter the imaginary part of the second no : ");
+		b=sc.nextInt();
+		c1.read(a,b);
+		System.out.print("Enter the real part of the first no : ");
+		a=sc.nextInt();
+		System.out.print("Enter the imaginary part of the second no : ");
+		b=sc.nextInt();
+		c2.read(a,b);
+		c3=c1.add(c2);
+		System.out.println("The sum is : "+c3.real+" + "+c3.imaginary+"i");
 	}
 }
