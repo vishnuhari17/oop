@@ -1,6 +1,3 @@
-/*Bank is a class that provides functionality to get rate of interest. 
-But, rate of interest varies according to banks. For example, SBI, ICICI and AXIS banks could provide 5%, 6% and 7% rate of interest. 
-Implement this scenario using the concept of method overriding */
 class Bank
 {
     public int interest()
